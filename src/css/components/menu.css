@@ -1,42 +1,82 @@
-/* Pour construire le menu en mobile : 
-On construit le menu tel qu'il sera une fois ouvert.
-On ajoute les propriétés "visibility: hidden" et "opacity: 0" pour masquer le menu. */
 .menu {
-  position : fixed; /* Fixe le menu en position, il ne défilera pas avec la page : https://developer.mozilla.org/fr/docs/Web/CSS/position#fixed */
-  background-color : White; /* Définit la couleur de fond du menu en blanc : https://developer.mozilla.org/fr/docs/Web/CSS/background-color */
-  display: flex; /* Utilise Flexbox pour la mise en page des éléments enfants : https://developer.mozilla.org/fr/docs/Web/CSS/display-inside#flex */
- top : 0 ; /* Positionne le menu en haut de la page : https://developer.mozilla.org/fr/docs/Web/CSS/top */
-  height:100%; /* Étend le menu jusqu'en bas de la page */
-  Left: 0%; /* Positionne le menu à gauche de la page */
-  right:0%; /* Étend le menu jusqu'à droite de la page */
-  transition: margin-right 0.4s; /* Définit une transition de 0.4 secondes pour toutes les propriétés, avec un effet d'accélération et de décélération : https://developer.mozilla.org/fr/docs/Web/CSS/transition */
-  opacity : 0; /* Rend le menu complètement transparent : https://developer.mozilla.org/fr/docs/Web/CSS/opacity */
-  visibility : hidden ; /* Cache le menu en le rendant invisible : https://developer.mozilla.org/fr/docs/Web/CSS/visibility#hidden  */
+  position : fixed; 
+  background-color : White; 
+  display: flex; 
+ top : 0 ; 
+  height:100%; 
+  Left: 0%;
+  right:0%;
+  transition: margin-right 0.4s; 
+  opacity : 0; 
+  visibility : hidden ;
 }
-/* On se sert de Javascript pour gérer l'ouverture et la fermeture du menu avec l'attribut "aria-hidden" */
+
 .menu[aria-hidden="false"] {
-  visibility: visible; /* Rend le menu visible */
-  opacity: 1; /* Rend le menu complètement opaque */
+  visibility: visible; 
+  opacity: 1; 
 }
 
-/* On ajoute une classe sur le body pour empêcher le scroll lorsque le menu est ouvert */
 .noscroll {
-  overflow: hidden; /* Empêche le défilement de la page (hidden) */
+  overflow: hidden;
 }
 
-/* Mise en forme du bouton de menu "Hamburger" */
+
 .menu-btn {
-  position: relative; /* Positionne le bouton par rapport à son conteneur parent */
-  z-index: 3; /* Assure que le bouton est au-dessus des autres éléments */
-  width: 30px; /* Définit la largeur du bouton à 30px */
-  transition: all 0.4s ease-in-out; /* Ajoute une transition de 0.4 secondes pour toutes les propriétés, avec un effet d'accélération et de décélération */
+  position: relative; 
+  z-index: 3; 
+  width: 30px; 
+  transition: all 0.4s ease-in-out; 
 }
 
-/*
-  "aria-expanded" géré par JavaScript pour l'ouverture et la fermeture.
- */
+
 .menu-btn[aria-expanded="true"] {
   transform: rotate(
     90deg
-  ); /* Fait pivoter le bouton de menu de 90 degrés lorsqu'il est en état "expanded" */
+  );
+}
+
+.menu__link {
+  color: #000;
+  text-decoration: none;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.menu__link:hover {
+  color: #fff;
+  background-color: #007BFF; /* Fond bleu au survol */
+}
+
+.header__menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.header__menu[aria-hidden="false"] {
+  max-height: 500px; 
+}
+
+.header__menu-btn {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.header__menu-btn:hover {
+  transform: rotate(90deg);
+}
+
+body.menu-open {
+  background-color: #525252;
+  transition: background-color 0.3s ease;
+}
+
+.menu__list {
+  display: flex;
+  flex-direction: column; 
+  gap: 16px;               
 }
