@@ -44,8 +44,8 @@
 }
 
 .menu__link:hover {
-  color: #fff;
-  background-color: #007BFF; /* Fond bleu au survol */
+  color: #ffffff;
+  background-color: #1e5da0;
 }
 
 .header__menu {
@@ -58,7 +58,7 @@
   max-height: 500px; 
 }
 
-.header__menu-btn {
+.header_menu-btn {
   font-size: 24px;
   background: none;
   border: none;
@@ -78,5 +78,22 @@ body.menu-open {
 .menu__list {
   display: flex;
   flex-direction: column; 
-  gap: 16px;               
+  gap: 16px;              
+}
+
+.menu__item {
+  margin-left: 30px;  
+}
+
+.header__menu-btn {
+  font-size: 25px;             
+  width: 30px;                 
+  height: 30px;                
+  border: hidden;    
+  border-radius: hidden;           
+  background-color : #fff;       
+  display: flex;                 
+  align-items: center;           
+  justify-content: center;       
+  cursor: pointer;               
 }
